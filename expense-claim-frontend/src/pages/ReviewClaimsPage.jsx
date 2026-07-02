@@ -17,6 +17,7 @@ const ReviewClaimsPage = () => {
   const [selectedClaim, setSelectedClaim] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [isReviewing, setIsReviewing] = useState(false);
+  const [modalError, setModalError] = useState(''); // Separate error for modal
 
   useEffect(() => {
     fetchClaims();
@@ -47,21 +48,30 @@ const ReviewClaimsPage = () => {
 
   const handleReviewClick = (claim) => {
     setSelectedClaim(claim);
+    setModalError(''); // Clear any previous error
     setShowModal(true);
   };
 
   const handleReviewSubmit = async (reviewData) => {
     setIsReviewing(true);
-    setError('');
+    setModalError(''); // Clear previous error
     
     try {
       await reviewClaim(reviewData);
       setShowModal(false);
       setSelectedClaim(null);
+      setModalError('');
       // Refresh claims list
       await fetchClaims();
     } catch (err) {
-      setError(err.response?.data?.message || err.message || 'Failed to review claim');
+      // Extract error message from response
+      let errorMsg = 'Failed to review claim';
+      if (err.response?.data?.message) {
+        errorMsg = err.response.data.message;
+      } else if (err.message) {
+        errorMsg = err.message;
+      }
+      setModalError(errorMsg);
     } finally {
       setIsReviewing(false);
     }
@@ -70,7 +80,7 @@ const ReviewClaimsPage = () => {
   const handleModalClose = () => {
     setShowModal(false);
     setSelectedClaim(null);
-    setError('');
+    setModalError('');
   };
 
   return (
@@ -97,6 +107,7 @@ const ReviewClaimsPage = () => {
         claim={selectedClaim}
         onReview={handleReviewSubmit}
         isLoading={isReviewing}
+        error={modalError} // Pass error to modal
       />
     </Container>
   );

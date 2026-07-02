@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import StatusBadge from '../common/StatusBadge';
-import { formatCurrency, formatDate } from '../../utils/formatters';
+import { formatCurrency } from '../../utils/formatters';
 
 const ReviewClaimModal = ({ 
   show, 
   onClose, 
   claim, 
   onReview, 
-  isLoading 
+  isLoading,
+  error: externalError // Receive error from parent
 }) => {
   const [reviewData, setReviewData] = useState({
     status: 'APPROVED',
     reviewRemark: ''
   });
-  const [error, setError] = useState('');
+  const [localError, setLocalError] = useState('');
+
+  // Use external error if provided, otherwise use local error
+  const displayError = externalError || localError;
+
+  // Reset local error when modal opens or external error changes
+  useEffect(() => {
+    if (show) {
+      setLocalError('');
+    }
+  }, [show, externalError]);
 
   if (!claim) return null;
 
@@ -24,12 +35,12 @@ const ReviewClaimModal = ({
       ...prev,
       [name]: value
     }));
-    setError('');
+    setLocalError('');
   };
 
   const handleSubmit = () => {
     if (!reviewData.reviewRemark.trim()) {
-      setError('Review remark is required');
+      setLocalError('Review remark is required');
       return;
     }
     onReview({
@@ -44,7 +55,7 @@ const ReviewClaimModal = ({
       status: 'APPROVED',
       reviewRemark: ''
     });
-    setError('');
+    setLocalError('');
     onClose();
   };
 
@@ -54,6 +65,19 @@ const ReviewClaimModal = ({
         <Modal.Title>Review Claim</Modal.Title>
       </Modal.Header>
       <Modal.Body>
+        {/* Error displayed prominently at the top */}
+        {displayError && (
+          <Alert variant="danger" className="mb-3" onClose={() => setLocalError('')} dismissible>
+            <Alert.Heading>Cannot Approve Claim!</Alert.Heading>
+            <p>{displayError}</p>
+            {displayError.includes('budget') && (
+              <p className="mb-0 small">
+                <strong>Tip:</strong> Make sure a budget exists for {claim?.department} for {claim?.monthYear}
+              </p>
+            )}
+          </Alert>
+        )}
+
         <div className="bg-light p-3 rounded mb-3">
           <h6>Claim Details</h6>
           <div className="row">
@@ -61,17 +85,15 @@ const ReviewClaimModal = ({
               <p className="mb-1"><strong>Employee:</strong> {claim.employeeName}</p>
               <p className="mb-1"><strong>Department:</strong> {claim.department}</p>
               <p className="mb-1"><strong>Category:</strong> {claim.category}</p>
+              <p className="mb-1"><strong>Month:</strong> {claim.monthYear || 'N/A'}</p>
             </div>
             <div className="col-md-6">
               <p className="mb-1"><strong>Amount:</strong> {formatCurrency(claim.amount)}</p>
-              <p className="mb-1"><strong>Date:</strong> {formatDate(claim.expenseDate)}</p>
               <p className="mb-1"><strong>Status:</strong> <StatusBadge status={claim.status} /></p>
             </div>
           </div>
           <p className="mb-0"><strong>Description:</strong> {claim.description}</p>
         </div>
-
-        {error && <Alert variant="danger">{error}</Alert>}
 
         <Form>
           <Form.Group className="mb-3">
@@ -97,7 +119,11 @@ const ReviewClaimModal = ({
               placeholder="Enter review remarks..."
               rows={3}
               disabled={isLoading}
+              isInvalid={!!localError && !reviewData.reviewRemark.trim()}
             />
+            <Form.Control.Feedback type="invalid">
+              Review remark is required
+            </Form.Control.Feedback>
           </Form.Group>
         </Form>
       </Modal.Body>
