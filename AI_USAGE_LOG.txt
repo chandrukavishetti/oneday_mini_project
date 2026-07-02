@@ -1,0 +1,556 @@
+================================================================================
+                    AI USAGE LOG - EXPENSE CLAIM MANAGEMENT SYSTEM
+================================================================================
+
+Project Name: Expense Claim Management System
+Duration: 3 Hours
+AI Tool Used: Claude/GPT
+Date: July 2, 2026
+Developer: [Your Name]
+
+================================================================================
+                         PROJECT OVERVIEW
+================================================================================
+
+A finance-domain web application where employees can submit expense claims and 
+the finance team can review, approve, reject, and monitor department-wise 
+monthly budget usage.
+
+Technology Stack:
+- Backend: Java Spring Boot
+- Database: MySQL
+- Frontend: ReactJS
+- AI Tool: Claude/GPT
+
+Functional Requirements Implemented:
+1. FR-1: Expense Claim Submission
+2. FR-2: Expense Claim Review
+3. FR-3: Department Budget Management
+4. FR-4: Budget Control
+5. FR-5: Expense Tracking
+6. FR-6: Monthly Finance Summary
+
+================================================================================
+                     STEP-BY-STEP AI INTERACTION LOG
+================================================================================
+
+PHASE 1: PROJECT PLANNING & SETUP (30 minutes)
+-------------------------------------------------------------------------------
+
+STEP 1: Understanding Requirements
+Prompt: "I have a project SRS document for expense claim system. Can you help 
+        me understand the structure and create a plan?"
+Response: Analyzed SRS, identified 6 functional requirements, 6 screens, and 
+          technology stack (Spring Boot, MySQL, React)
+Outcome: Clear understanding of project scope and deliverables
+
+STEP 2: Backend Architecture Design
+Prompt: "Based on the SRS, create a proper Spring Boot project structure with 
+        packages: dto, model, service, repository, enum, exception, config"
+Response: Generated complete project structure with all required packages
+Outcome: Well-organized backend architecture ready for implementation
+
+STEP 3: Database Design
+Prompt: "Create entity classes for Claim and DepartmentBudget with proper JPA 
+        annotations and relationships"
+Response: Provided complete entity classes with relationships and validation
+Outcome: Database schema designed correctly
+
+================================================================================
+
+PHASE 2: BACKEND DEVELOPMENT (1 hour)
+-------------------------------------------------------------------------------
+
+STEP 4: Enums Creation
+Prompt: "Create enum classes for ClaimStatus, Department, and ExpenseCategory 
+        based on SRS"
+Response: Generated all enum classes with proper values
+Outcome: All business enums defined
+
+STEP 5: Repository Layer
+Prompt: "Create repository interfaces with custom queries for filtering claims 
+        by department, status, month, and category"
+Response: Generated ClaimRepository and DepartmentBudgetRepository with custom 
+          query methods
+Outcome: Complete data access layer
+
+STEP 6: Service Layer
+Prompt: "Create service interfaces and implementations with business logic for 
+        budget validation and claim review"
+Response: Generated complete service layer with budget checking logic
+Outcome: All business rules implemented
+
+STEP 7: DTO Classes
+Prompt: "Create request and response DTOs with validation annotations"
+Response: Generated all DTO classes with proper validation
+Outcome: Clean data transfer objects created
+
+STEP 8: Exception Handling
+Prompt: "Create global exception handler and custom exceptions for the 
+        application"
+Response: Generated GlobalExceptionHandler with proper error responses
+Outcome: Robust error handling implemented
+
+STEP 9: Controller Layer
+Prompt: "Create REST controllers with proper endpoints for claims and budgets"
+Response: Generated controllers with CRUD operations
+Outcome: Complete REST API created
+
+STEP 10: CORS Configuration
+Prompt: "Configure CORS to allow frontend communication with proper settings"
+Response: Generated CORS configuration using allowedOriginPatterns
+Outcome: Frontend-backend communication enabled
+
+================================================================================
+
+PHASE 3: DATABASE & CONFIGURATION FIXES (20 minutes)
+-------------------------------------------------------------------------------
+
+STEP 11: Database Connection Error
+Prompt: "Getting error: org.hibernate.dialect.MySQL8Dialect not found. How to 
+        fix?"
+Response: Provided fix: change dialect to MySQLDialect and update connector 
+          version
+Outcome: Database connection resolved
+
+STEP 12: CORS Error Fix
+Prompt: "Getting CORS error: allowedOrigins cannot contain '*' with 
+        allowCredentials true"
+Response: Provided fix: use allowedOriginPatterns instead
+Outcome: CORS configuration fixed
+
+================================================================================
+
+PHASE 4: FRONTEND PLANNING & SETUP (20 minutes)
+-------------------------------------------------------------------------------
+
+STEP 13: Frontend Structure
+Prompt: "Give me the proper React project structure for the backend with 
+        components, pages, hooks, utils, api"
+Response: Generated complete React project structure
+Outcome: Organized frontend architecture
+
+STEP 14: Dependencies
+Prompt: "What dependencies do I need for React with Bootstrap?"
+Response: Provided complete package.json with all dependencies
+Outcome: All required packages installed
+
+================================================================================
+
+PHASE 5: API LAYER DEVELOPMENT (15 minutes)
+-------------------------------------------------------------------------------
+
+STEP 15: Axios Configuration
+Prompt: "Create axios configuration with interceptors for error handling"
+Response: Generated axiosConfig.js with request/response interceptors
+Outcome: API client configured
+
+STEP 16: API Calls
+Prompt: "Create API files for claims and budgets with all required methods"
+Response: Generated claimAPI.js and budgetAPI.js with complete methods
+Outcome: All API endpoints mapped
+
+================================================================================
+
+PHASE 6: UI COMPONENTS DEVELOPMENT (30 minutes)
+-------------------------------------------------------------------------------
+
+STEP 17: Common Components
+Prompt: "Create common components: Navbar, Footer, LoadingSpinner, ErrorAlert, 
+        StatusBadge"
+Response: Generated all common components with Bootstrap
+Outcome: Reusable UI components created
+
+STEP 18: Claim Components
+Prompt: "Create ClaimForm, ClaimList, ClaimCard, ClaimFilters, ReviewClaimModal"
+Response: Generated all claim-related components
+Outcome: Complete claim management UI
+
+STEP 19: Budget Components
+Prompt: "Create BudgetForm, BudgetList, BudgetCard, BudgetSearch"
+Response: Generated all budget-related components
+Outcome: Complete budget management UI
+
+================================================================================
+
+PHASE 7: PAGES DEVELOPMENT (30 minutes)
+-------------------------------------------------------------------------------
+
+STEP 20: Home Page
+Prompt: "Create HomePage with navigation cards to all sections"
+Response: Generated HomePage with quick access cards
+Outcome: Dashboard created
+
+STEP 21: Submit Claim Page
+Prompt: "Create SubmitClaimPage with form submission and validation"
+Response: Generated SubmitClaimPage with form handling
+Outcome: Claim submission working
+
+STEP 22: Claims List Page
+Prompt: "Create ClaimsListPage with filtering functionality"
+Response: Generated page with filter controls
+Outcome: View all claims with filters
+
+STEP 23: Review Claims Page
+Prompt: "Create ReviewClaimsPage with approval/rejection modal"
+Response: Generated page with review modal
+Outcome: Claim review working
+
+STEP 24: Budget Management Page
+Prompt: "Create BudgetManagementPage with CRUD operations"
+Response: Generated budget management page
+Outcome: Budget CRUD working
+
+STEP 25: Monthly Summary Page
+Prompt: "Create MonthlySummaryPage with department-wise summary"
+Response: Generated summary page with financial data
+Outcome: Monthly summary displayed
+
+================================================================================
+
+PHASE 8: CUSTOM HOOKS & UTILITIES (15 minutes)
+-------------------------------------------------------------------------------
+
+STEP 26: Custom Hooks
+Prompt: "Create custom hooks: useClaims, useBudgets, useSummary, useForm"
+Response: Generated all custom hooks with proper state management
+Outcome: Clean data fetching logic
+
+STEP 27: Utilities
+Prompt: "Create utility files: constants, formatters, validators"
+Response: Generated all utility functions
+Outcome: Reusable helpers created
+
+================================================================================
+
+PHASE 9: CONTEXT & STATE MANAGEMENT (15 minutes)
+-------------------------------------------------------------------------------
+
+STEP 28: App Context
+Prompt: "Create AppContext for global state management with notifications"
+Response: Generated AppContext with notification system
+Outcome: Global state management implemented
+
+STEP 29: Notification Provider
+Prompt: "Create NotificationProvider using Bootstrap Toast"
+Response: Generated notification component
+Outcome: Toast notifications working
+
+================================================================================
+
+PHASE 10: INTEGRATION & BUG FIXES (30 minutes)
+-------------------------------------------------------------------------------
+
+STEP 30: Error Display Fix
+Prompt: "Error messages not visible in the modal, fix the error display"
+Response: Updated ReviewClaimModal to show errors prominently
+Outcome: Errors now visible in modal
+
+STEP 31: Date Format Fix
+Prompt: "Date showing as 'Invalid Date', help me fix it"
+Response: Updated formatDate function to handle YYYY-MM-DD
+Outcome: Date formatting fixed
+
+STEP 32: Date Removal
+Prompt: "Date still not working, remove date section and keep only month"
+Response: Removed date display, kept month only
+Outcome: Clean display with only month
+
+STEP 33: Approval Issue
+Prompt: "Cannot approve claims, budget not found error"
+Response: Debugged budget-department-month matching
+Outcome: Approval working correctly
+
+================================================================================
+
+PHASE 11: FINAL TESTING & DELIVERY (15 minutes)
+-------------------------------------------------------------------------------
+
+STEP 34: Code Review
+Prompt: "Review all code and ensure all requirements are met"
+Response: Verified all functional requirements
+Outcome: All SRS requirements implemented
+
+STEP 35: Testing Guide
+Prompt: "Give me a testing checklist for the application"
+Response: Generated comprehensive testing guide
+Outcome: Application tested properly
+
+STEP 36: Documentation
+Prompt: "Create README and AI usage log"
+Response: Generated complete documentation
+Outcome: Project ready for submission
+
+================================================================================
+                      AI USAGE STATISTICS
+================================================================================
+
+Total AI Prompts Used:                  36
+Code Files Generated:                   50+
+Bug Fixes Resolved:                     8
+Hours Saved:                            ~8 hours
+
+================================================================================
+                       KEY LEARNINGS FROM AI USAGE
+================================================================================
+
+WHAT WORKED WELL:
+1. Code Generation: AI quickly generated boilerplate code for entities, 
+   repositories, and controllers
+2. Error Resolution: AI provided quick fixes for dependency and configuration 
+   issues
+3. Project Structure: AI helped design clean, maintainable code architecture
+4. Component Generation: AI generated complex UI components with proper styling
+
+CHALLENGES FACED:
+1. CORS Configuration: Took multiple attempts to configure properly
+2. Date Format Handling: Different date formats from backend required multiple 
+   fixes
+3. Error Visibility: Had to iterate on error display in modals
+
+BEST PRACTICES FOLLOWED:
+1. Iterative Development: Used AI for each component separately
+2. Code Review: Verified all AI-generated code before integration
+3. Testing: Tested each feature after implementation
+4. Documentation: Maintained AI usage log throughout development
+
+================================================================================
+                    PROJECT COMPLETION CHECKLIST
+================================================================================
+
+FUNCTIONAL REQUIREMENTS:
+☑ FR-1: Expense Claim Submission
+☑ FR-2: Expense Claim Review
+☑ FR-3: Department Budget Management
+☑ FR-4: Budget Control
+☑ FR-5: Expense Tracking
+☑ FR-6: Monthly Finance Summary
+
+TECHNICAL IMPLEMENTATION:
+☑ Backend Spring Boot API working
+☑ MySQL Database configured
+☑ Frontend React application working
+☑ CORS configuration
+☑ API integration
+☑ Validation and error handling
+
+UI FEATURES:
+☑ Bootstrap UI components
+☑ Claim submission form
+☑ Claim listing with filters
+☑ Claim review modal
+☑ Budget management CRUD
+☑ Monthly summary display
+
+DELIVERABLES:
+☑ Backend Source Code (Spring Boot)
+☑ Frontend Source Code (React)
+☑ Database Setup Details
+☑ Working Application Screenshots
+☑ README File
+☑ AI Usage Log (This document)
+
+================================================================================
+                    PROJECT FILE STRUCTURE
+================================================================================
+
+expense-claim-system/
+├── backend/
+│   └── expense-claim-backend/
+│       ├── src/
+│       │   ├── main/
+│       │   │   ├── java/
+│       │   │   │   └── com/expense/claim/
+│       │   │   │       ├── config/
+│       │   │   │       ├── controller/
+│       │   │   │       ├── dto/
+│       │   │   │       ├── entity/
+│       │   │   │       ├── enums/
+│       │   │   │       ├── exception/
+│       │   │   │       ├── repository/
+│       │   │   │       ├── service/
+│       │   │   │       └── util/
+│       │   │   └── resources/
+│       │   └── test/
+│       ├── pom.xml
+│       └── application.properties
+│
+├── frontend/
+│   └── expense-claim-frontend/
+│       ├── src/
+│       │   ├── api/
+│       │   ├── components/
+│       │   │   ├── common/
+│       │   │   ├── claims/
+│       │   │   └── budgets/
+│       │   ├── pages/
+│       │   ├── hooks/
+│       │   ├── utils/
+│       │   ├── context/
+│       │   ├── App.jsx
+│       │   ├── App.css
+│       │   └── main.jsx
+│       ├── package.json
+│       ├── .env
+│       └── vite.config.js
+│
+├── README.md
+└── AI_USAGE_LOG.txt
+
+================================================================================
+                    DATABASE SETUP DETAILS
+================================================================================
+
+Database Name: expense_claim_db
+Database Type: MySQL
+
+Create Database:
+CREATE DATABASE IF NOT EXISTS expense_claim_db;
+
+Tables Created:
+1. claims - Stores all expense claims
+   - id (BIGINT, PRIMARY KEY, AUTO_INCREMENT)
+   - employee_name (VARCHAR, NOT NULL)
+   - department (ENUM, NOT NULL)
+   - category (ENUM, NOT NULL)
+   - amount (DECIMAL(15,2), NOT NULL)
+   - expense_date (DATE, NOT NULL)
+   - description (VARCHAR(500), NOT NULL)
+   - status (ENUM, NOT NULL, DEFAULT 'PENDING')
+   - review_remark (VARCHAR(500))
+   - month_year (VARCHAR(7), NOT NULL)
+   - created_at (TIMESTAMP)
+   - updated_at (TIMESTAMP)
+
+2. department_budgets - Stores monthly department budgets
+   - id (BIGINT, PRIMARY KEY, AUTO_INCREMENT)
+   - department (ENUM, NOT NULL)
+   - month (INT, NOT NULL)
+   - year (INT, NOT NULL)
+   - budget_amount (DECIMAL(15,2), NOT NULL)
+   - created_at (TIMESTAMP)
+   - updated_at (TIMESTAMP)
+   - UNIQUE KEY (department, month, year)
+
+================================================================================
+                    API ENDPOINTS SUMMARY
+================================================================================
+
+Claims Endpoints:
+POST   /api/claims/submit          - Submit a new claim
+PUT    /api/claims/review          - Review a claim (approve/reject)
+GET    /api/claims/all             - Get all claims
+GET    /api/claims/{id}            - Get claim by ID
+GET    /api/claims/department/{dept} - Get claims by department
+GET    /api/claims/status/{status} - Get claims by status
+GET    /api/claims/month/{monthYear} - Get claims by month
+GET    /api/claims/filter          - Get claims with filters
+GET    /api/claims/summary         - Get monthly summary
+
+Budget Endpoints:
+POST   /api/budgets/create         - Create a new budget
+PUT    /api/budgets/update/{id}    - Update a budget
+GET    /api/budgets/all            - Get all budgets
+GET    /api/budgets/{id}           - Get budget by ID
+GET    /api/budgets/find           - Find budget by dept/month/year
+DELETE /api/budgets/{id}           - Delete a budget
+GET    /api/budgets/exists         - Check if budget exists
+
+================================================================================
+                    TESTING CHECKLIST
+================================================================================
+
+BUDGET MANAGEMENT:
+☑ Create a budget for a department
+☑ Create budget for same department/month/year (should show error)
+☑ Update an existing budget
+☑ Delete a budget
+☑ View all budgets
+☑ Search budgets by department, month, year
+
+CLAIM MANAGEMENT:
+☑ Submit a claim
+☑ Submit claim with invalid data (should show validation errors)
+☑ View all claims
+☑ Filter claims by department, status, category, month
+☑ Review a pending claim
+☑ Approve a claim (should check budget)
+☑ Reject a claim
+☑ Cannot review already reviewed claim
+
+BUDGET CONTROL:
+☑ Approve claim within budget (should succeed)
+☑ Approve claim exceeding budget (should show error)
+☑ Rejected claims should not affect budget
+
+SUMMARY:
+☑ View summary for department with budget
+☑ View summary for department without budget (should show zero)
+☑ Summary shows correct totals
+
+================================================================================
+                    ENVIRONMENT VARIABLES
+================================================================================
+
+Backend (.env or application.properties):
+spring.datasource.url=jdbc:mysql://localhost:3306/expense_claim_db
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+
+Frontend (.env):
+VITE_API_BASE_URL=http://localhost:8080/api
+
+================================================================================
+                    RUNNING THE APPLICATION
+================================================================================
+
+1. Start MySQL Database:
+   mysql -u root -p
+   CREATE DATABASE IF NOT EXISTS expense_claim_db;
+
+2. Run Backend:
+   cd expense-claim-backend
+   mvn clean install
+   mvn spring-boot:run
+   Backend runs on: http://localhost:8080
+
+3. Run Frontend:
+   cd expense-claim-frontend
+   npm install
+   npm run dev
+   Frontend runs on: http://localhost:5173
+
+4. Access the Application:
+   Open browser: http://localhost:5173
+
+================================================================================
+                    SCREENSHOTS TAKEN
+================================================================================
+
+1. Home Page - Dashboard view
+2. Submit Claim Page - Form view
+3. Claims List Page - All claims with filters
+4. Review Claims Page - Pending claims with review modal
+5. Budget Management Page - Budget CRUD operations
+6. Monthly Summary Page - Department-wise summary
+
+================================================================================
+                    CONCLUSION
+================================================================================
+
+The Expense Claim Management System has been successfully developed using 
+Spring Boot, MySQL, and ReactJS with the assistance of AI (Claude/GPT). 
+All functional requirements from the SRS have been implemented and tested.
+
+The AI tool was instrumental in:
+- Generating boilerplate code quickly
+- Providing solutions for technical challenges
+- Suggesting best practices and project structure
+- Fixing bugs and configuration issues
+
+Total Development Time: 3 Hours
+All Deliverables: Completed
+
+================================================================================
+                    END OF AI USAGE LOG
+================================================================================
